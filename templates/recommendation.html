@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+          <div id="logo">
+            WatchMovie
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="ml-auto navbar-nav mr-auto">
+              <li class="nav-item">
+                <a id="home" class="nav-link text-light" href="/">Home</a>
+              </li>
+            </ul>
+            <div class="ml-auto form-inline my-2 my-lg-0 form-group">
+              <input type="text" class="form-control mr-sm-2" id="search" placeholder="Enter a movie...">
+              <button id="search_btn" class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="movieSelected()">Search</button>
+              <div id="autocomplete-container"></div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      
+      
+    <div class="container-fluid">
+        <div class="row movie-box mt-3">
+            <div class="movie-vid col-md-8 d-md-none">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{trailer_key}}?autoplay=1&showinfo=0&controls=0&mute=1&playlist={{trailer_key}}&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="movie-text col-md-4">
+                <div class="d-flex mx-auto">
+                    <div class="text-wrapper">
+                    <h2>{{movies_result[movie_idx][2]}}</h2>
+                    {% if movies_result[movie_idx][3]: %}
+                    <h4>{{movies_result[movie_idx][3]}}</h4>
+                    {% endif %}
+
+                    <small>
+                        {% for item in mov_genre[movie_idx] %}
+                            {{item}} 
+                            {% if not loop.last %}| {% endif %}
+                        {% endfor %}
+                    </small> <br>
+                    <small>
+                        {% for item in mov_cast[movie_idx] %}
+                            {{item}} 
+                            {% if not loop.last %} | {% endif %}
+                        {% endfor %}
+                    </small> <br>
+                    {% if movies_result[movie_idx][10]: %}
+                    <small>
+                         {{movies_result[movie_idx][10] }}
+                    </small><br><br>
+                    {% endif %}
+
+                    {% if movies_result[movie_idx][4]: %}
+                    <small>
+                        <p class="text-contain">{{movies_result[movie_idx][4]}}</p>
+                    </small><br><br>
+                    {% endif %}
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="movie-vid col-md-8 d-none d-md-block">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{trailer_key}}?autoplay=1&showinfo=0&controls=0&mute=1&playlist={{trailer_key}}&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mb-3" >
+        <div class="row">
+            <h4 class="title">Movies you might enjoy...</h4>
+        </div>
+    <div class="row movie-list" id="movie-row">
+        {%for i in range(0, 6)%}
+        <div class="col-6 col-sm-4 col-md-2 movie-card">
+            <a href="/movie/{{recommended_movies[i]}}">
+                <img src={{movie_posters[i]}} class="card-img" alt="">
+                <p class="text-contain">{{recommended_movies[i]}}</p>
+            </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script src="../static/js/script.js"></script>
+</html>
