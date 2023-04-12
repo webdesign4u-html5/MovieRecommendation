@@ -14,6 +14,7 @@ This web app provides movie recommendations based on user preferences and movie 
 
 ## Interface
 
+
 ## Tech Stack 
 **Tech Stack:**
 
@@ -30,7 +31,7 @@ This web app provides movie recommendations based on user preferences and movie 
 
 ## Installation
 
-1. Clone the repository in your local system: git clone https://github.com/your-username/your-repo.git
+1. Clone the repository in your local system: git clone https://github.com/webdesign4u-html5/MovieRecommendation.git
 2. Navigate to the project directory: cd your-repo
 3. Make sure python is installed and updated in your system 
 4. Install the required packages: pip install -r requirements.txt
