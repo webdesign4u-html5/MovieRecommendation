@@ -47,6 +47,8 @@ This web app provides movie recommendations based on user preferences and movie 
 
 ![landing page](/static/images/img9.png)
 
+## Recommendation Algorithm
+In this project, we used content-based filtering recommender system that uses movie metadata such as the top three actors, director, related genres, and plot keywords to suggest similar items based on a particular movie, with the assumption that a person who liked a particular movie is likely to enjoy other movies with similar metadata.
 
 ## Tech Stack 
 **Tech Stack:**
