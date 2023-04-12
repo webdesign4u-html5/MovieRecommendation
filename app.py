@@ -1,6 +1,5 @@
 import pandas as pd
 from flask import Flask, render_template, jsonify, request
-from sklearn.metrics.pairwise import cosine_similarity
 import sqlite3
 import requests
 from content_based import get_recommendations
@@ -28,7 +27,7 @@ conn.close()
 def index():
      return render_template('index.html')
 
-
+# Recommendation page by genre and by year
 @app.route('/selection')
 def selection():
     genre_movies=[]
@@ -36,6 +35,8 @@ def selection():
     year_movies=[]
     year_posters=[]
     return render_template('selection.html', genre_movies=genre_movies, genre_posters=genre_posters, year_movies=year_movies, year_posters=year_posters)
+
+
 
 def fetchPoster(movie_id):
     response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US'.format(movie_id))
@@ -61,6 +62,8 @@ def fetchTrailer(movie_id):
     # If no trailer was found, return None
     return None
 
+
+# Suggestion by Genre
 def byGenre(genre):
     counter=0
     genre_movies=[]
@@ -98,7 +101,7 @@ def getByGenre():
     return response
 
 
-
+# suggestions by year
 def byYear(year):
     counter=0
     year_movies=[]
@@ -133,7 +136,7 @@ def getByYear():
 
 
 
-
+# Autocomplete Suggestions of movies to search bar
 @app.route('/autocomplete', methods=['GET'])
 def autocomplete():
     search = request.args.get('search')
@@ -146,6 +149,8 @@ def autocomplete():
     return jsonify(results)
 
 
+
+# Movie page
 @app.route('/movie/<movie_name>', methods=['GET'])
 
 def movie(movie_name):

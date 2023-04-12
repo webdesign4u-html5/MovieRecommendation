@@ -1,14 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
-
-
-
-# In[17]:
-
 
 """content_based.ipynb
 
@@ -18,31 +10,18 @@ Original file is located at
     https://colab.research.google.com/drive/1TyMlOTBI7ZTbZVX-BjeSiEgMbsVKjc9C
 """
 
-
-# In[18]:
-
-
 import numpy as np
 import pandas as pd 
-from rake_nltk import Rake
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
-
-
-# In[19]:
 
 
 movies= pd.read_csv('model/data/movies.csv')
 credits= pd.read_csv('model/data/credits.csv')
 
 
-# In[20]:
-
 
 df = movies.merge(credits, on='title')
-
-
-# In[21]:
 
 
 from ast import literal_eval
@@ -52,17 +31,12 @@ for feature in features:
     df[feature] = df[feature].apply(literal_eval)
 
 
-# In[22]:
-
 
 def get_director(x):
     for i in x:
         if i['job'] == 'Director':
             return i['name']
     return np.nan
-
-
-# In[23]:
 
 
 def get_list(x):
@@ -77,8 +51,6 @@ def get_list(x):
     return []
 
 
-# In[24]:
-
 
 df['director'] = df['crew'].apply(get_director)
 
@@ -88,8 +60,6 @@ for feature in features:
 # Print the new features of the first 3 films
 df[['title', 'cast', 'director', 'keywords', 'genres']].head(3)
 
-
-# In[25]:
 
 
 def clean_data(x):
@@ -108,21 +78,11 @@ for feature in features:
     df[feature] = df[feature].apply(clean_data)
 
 
-# In[ ]:
-
-
-
-
-
-# In[26]:
-
 
 def create_soup(x):
     return ' '.join(x['keywords']) + ' ' + ' '.join(x['cast']) + ' ' + x['director'] + ' ' + ' '.join(x['genres'])
 df['soup'] = df.apply(create_soup, axis=1)
 
-
-# In[27]:
 
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -160,33 +120,6 @@ def get_recommendations(title, cosine_sim=cosine_sim2):
     return movies_name,movies_id
     
 get_recommendations('The Dark Knight Rises', cosine_sim2)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 

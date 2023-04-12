@@ -21,6 +21,7 @@ function genreSelected(selectedGenre)
     });
 }
 
+//Select by year
 function yearSelected(selectedYear)
 {
     url = baseUrl+"getByYear";
@@ -37,6 +38,7 @@ function yearSelected(selectedYear)
     });
 }
 
+//autocomplete searchbox 
 $(document).ready(function(){
     $('#search').keyup(function(){
         var search = $(this).val();
@@ -72,6 +74,7 @@ $(document).ready(function(){
     });
 });
 
+//Search by movie
 function movieSelected()
 {
     let selectedmovie = document.getElementById("search").value;
