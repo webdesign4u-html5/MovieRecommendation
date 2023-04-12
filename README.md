@@ -53,14 +53,20 @@ This web app provides movie recommendations based on user preferences and movie 
 
 - Backend: Python, Flask
 - Frontend: HTML, CSS, JavaScript, BootStrap, jQuery
-- Machine Learning: scikit-learn, pandas, numpy, ast
-- Database: SQLite
+- ML model : Jupyter Notebook 
+- Database: SQLite (sqlite3, SQLAlchemy)
 
 **Software Used:**
 
 - IDE: Visual Studio Code
 - Git: GitHub
 - API: The Movie Database API (TMDB)
+
+**Libraries**
+
+- Python : NumPy, Pandas, ast (Abstract Syntax Trees)
+- ML : sklearn (scikit-learn)
+- SQLite : sqlite3, SQLAlchemy
 
 ## Installation
 
