@@ -47,20 +47,28 @@ This web app provides movie recommendations based on user preferences and movie 
 
 ![landing page](/static/images/img9.png)
 
+## Recommendation Algorithm
+In this project, we used content-based filtering recommender system that uses movie metadata such as the top three actors, director, related genres, and plot keywords to suggest similar items based on a particular movie, with the assumption that a person who liked a particular movie is likely to enjoy other movies with similar metadata.
 
 ## Tech Stack 
 **Tech Stack:**
 
 - Backend: Python, Flask
 - Frontend: HTML, CSS, JavaScript, BootStrap, jQuery
-- Machine Learning: scikit-learn, pandas, numpy, ast
-- Database: SQLite
+- ML model : Jupyter Notebook 
+- Database: SQLite (sqlite3, SQLAlchemy)
 
 **Software Used:**
 
 - IDE: Visual Studio Code
 - Git: GitHub
 - API: The Movie Database API (TMDB)
+
+**Libraries**
+
+- Python : NumPy, Pandas, ast (Abstract Syntax Trees)
+- ML : sklearn (scikit-learn)
+- SQLite : sqlite3, SQLAlchemy
 
 ## Installation
 
