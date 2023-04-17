@@ -37,7 +37,6 @@ pure-eval==0.2.2
 Pygments==2.14.0
 python-dateutil==2.8.2
 pytz==2023.3
-pywin32==306
 pyzmq==25.0.2
 rake-nltk==1.0.6
 regex==2023.3.23
